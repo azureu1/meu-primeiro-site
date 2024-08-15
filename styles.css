@@ -41,6 +41,12 @@ p{
     gap: 10px;
 }
 
+.mais-videos{
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+}
+
 .videos{
     padding-left: 20px;
     padding-right: 20px;
