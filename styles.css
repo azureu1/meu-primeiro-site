@@ -35,35 +35,35 @@ p{
     font-size: 40px;
 }
 
-.outros-videos{
+.videos1{
     display: flex;
     overflow-x: auto;
     gap: 10px;
 }
 
-.mais-videos{
+.videos2{
     display: flex;
     overflow-x: auto;
     gap: 10px;
 }
 
-.videos{
+.mais-videos1{
     padding-left: 20px;
     padding-right: 20px;
     margin-top: 50px;
 }
 
-.videos-2{
+.mais-videos2{
     padding-left: 20px;
     padding-right: 20px;
     margin-top: 50px;
 }
 
-.videos h2{
+.mais-videos1 h2{
     color: red;
 
 }
 
-.videos-2 h2{
+.mais-videos2 h2{
     color: red;
 }
