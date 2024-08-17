@@ -47,6 +47,18 @@ p{
     gap: 10px;
 }
 
+.mon{
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+}
+
+.females{
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+}
+
 .videos1{
     display: flex;
     overflow-x: auto;
@@ -71,6 +83,18 @@ p{
     margin-top: 50px;
 }
 
+.poke{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 50px;
+}
+
+.male{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 50px;
+}
+
 .mais-videos1{
     padding-left: 20px;
     padding-right: 20px;
@@ -89,6 +113,14 @@ p{
 
 .Wuthering{
    color: red;
+}
+
+.poke{
+    color: red;
+}
+
+.male{
+    color: red;
 }
 
 .mais-videos1 h2{
