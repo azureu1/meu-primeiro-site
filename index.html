@@ -10,25 +10,9 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
     <title>Meu Lar</title>
-    <style>
 
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .tab-links button {
-            padding: 40px;
-            margin: 5px;
-            cursor: pointer;
-            color: red;
-            background: black;
-            border-color: black;
-        }
-
-    </style>
 </head>
+
 <body>
     
 
@@ -58,13 +42,20 @@
 
     </section>
 
-    <div class="tab-links">
-        <button onclick="showTab('tab1')">Aba videos</button>
-        <button onclick="showTab('tab2')">Aba mangas</button>
-        <button onclick="showTab('tab3')">Aba jogos</button>
+    <div class="tabs">
+        <button class="tab active" data-target="tab1" data-bg="url('https://c.wallhere.com/photos/44/2c/anime_anime_girls_ecchi_hentai_ass-1582171.jpg!d')" >Videos</button>
+        <button class="tab" data-target="tab2" data-bg="url('https://steamuserimages-a.akamaihd.net/ugc/1867305972444173697/A4C0E51D0229242D3CA8DA0AD49DDA0C7F33FA0E/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false')" >Videos 2</button>
+        <button class="tab" data-target="tab3" data-bg="url('https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1711480/ss_117122de258ad97f0202e8af6a7969dfe2b0faa4.1920x1080.jpg?t=1658500562')" >Videos 3</button>
+    </div>
+
+    <div class="posição">
+
+        <a href="https://rule34video.com" class="botao-link">Ir para o Rule34Videos</a>
+        <a href="https://bakai.org" class="botao-link">Ir para o Bakai</a>
+    
     </div>
     
-    <div id="tab1" class="tab-content">
+    <div class="content active" id="tab1">
         <h2>Conteúdo da Aba de videos</h2>
         <p>videos hot.</p>
 
@@ -226,7 +217,8 @@
 
     </div>
 
-    <div id="tab2" class="tab-content">
+    <div class="content" id="tab2">
+
         <h2>Conteúdo da Aba de mangas</h2>
         <p>mangas hots.</p>
 
@@ -236,19 +228,19 @@
             
             <div class="mangas">
                 
-                <a href="https://bakai.org/hentai/kyonyuu-ga-futari-inai-to-bokki-shinai-otto-no-tame-ni-tomodachi-o-tsurete-kita-tsuma/">
+            <a href="https://bakai.org/hentai/kyonyuu-ga-futari-inai-to-bokki-shinai-otto-no-tame-ni-tomodachi-o-tsurete-kita-tsuma/">
                 <img src="https://img.bakai.org/monthly_2023_04/01-2.thumb.jpg.77409b382d51ea84945683b08306cca9.jpg">
                </a>
     
-               <a href="https://bakai.org/hentai/kyonyuu-ga-futari-inai-to-bokki-shinai-otto-no-tame-ni-tomodachi-o-tsurete-kita-tsuma-2/?d=1&tab=reviews&sort=newest">
+            <a href="https://bakai.org/hentai/kyonyuu-ga-futari-inai-to-bokki-shinai-otto-no-tame-ni-tomodachi-o-tsurete-kita-tsuma-2/?d=1&tab=reviews&sort=newest">
                 <img src="https://img.bakai.org/monthly_2023_04/000-3.thumb.jpg.810b3af700d595afc1ffd751dd71242d.jpg">
                </a>
     
-               <a href="https://bakai.org/hentai/boku-to-kanojo-to-kanojo-no-haha-to/">
+            <a href="https://bakai.org/hentai/boku-to-kanojo-to-kanojo-no-haha-to/">
                 <img src="https://img.bakai.org/monthly_2024_06/01.thumb.jpg.93c77a130055fb2ff89937b11a4a1fd9.jpg">
                </a>
     
-               <a href="https://bakai.org/hentai/shirokuro-kanojo-ga-dekita-riyuu/">
+            <a href="https://bakai.org/hentai/shirokuro-kanojo-ga-dekita-riyuu/">
                 <img src="https://img3.bakai.org/monthly_2024_07/01.thumb.jpg.89906dad504cef744e0c00728bad6244.jpg">
                </a>
     
@@ -657,7 +649,7 @@
 
     </div>
 
-    <div id="tab3" class="tab-content">
+    <div class="content" id="tab3">
         <h2>Conteúdo da Aba de jogos hentai</h2>
         <p>Este é o conteúdo de jogos</p>
 
@@ -706,42 +698,27 @@
 
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script>
-        function showTab(tabId) {
-            // Primeiro, oculta todas as abas
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.classList.remove('active'));
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.content');
 
-            // Depois, mostra a aba selecionada
-            const selectedTab = document.getElementById(tabId);
-            if (selectedTab) {
-                selectedTab.classList.add('active');
-            }
-        }
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-target');
+                const bgImage = tab.getAttribute('data-bg');
 
-        // Exibe a primeira aba por padrão
-        showTab('tab1');
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById(target).classList.add('active');
+
+                // Muda a imagem de fundo da página
+                document.body.style.backgroundImage = bgImage;
+            });
+        });
     </script>
+
 </body>
 </html>
 
